@@ -4,6 +4,7 @@ import s from './App.module.css';
 export default function Menu(props) {
     const [isSubMenuOpen, setIsSubMenuOpen] = createSignal(false);
     createEffect(() => console.log(JSON.stringify(props.options, null, 2)))
+    const firstOpt = () => props.options[0]
 
     const optionElement = option => (
         <div
@@ -23,10 +24,10 @@ export default function Menu(props) {
             style={{
                 width: '100%',
                 border: '1px solid',
-                transform: `translate(${122 - (props.options[0].depth * 1.8)}px, -26px)`
+                transform: firstOpt().depth === 1 ? ''
+                    : `translate(${122 - (firstOpt().depth * 1.8)}px, -26px)`
             }}
         >
-            {/*  */}
             <For each={props.options}>
                 {option => (
                     <Show
@@ -37,16 +38,10 @@ export default function Menu(props) {
                             class={s.SubMenuContainer}
                             onclick={e => {
                                 setIsSubMenuOpen(!isSubMenuOpen());
-                                if (isSubMenuOpen()) {
-                                    // props.setDepth(props.depth() + 1);
-                                } else {
-                                    // props.setDepth(props.depth() - 1);
-                                }
                             }}
                         >
                             {optionElement(option)} ‣
                         </div>
-                        {/* <div class={`${s.SubMenuContainer}`}> */}
                         <Show when={isSubMenuOpen()}>
                             <Menu
                                 options={option.options}
@@ -54,7 +49,6 @@ export default function Menu(props) {
                                 setIsOpen={props.setIsOpen}
                             />
                         </Show>
-                        {/* </div> */}
                     </Show>
                 )}
             </For>
