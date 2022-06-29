@@ -5,14 +5,12 @@ import Menu from './Menu';
 export default function DropdownMenu(props) {
     const [value, setValue] = createSignal(props.initialValue);
     const [isOpen, setIsOpen] = createSignal(false);
-    const [depth, setDepth] = createSignal(1);
 
 
     return (
         <div>
             <div class={s.Input} onClick={e => setIsOpen(!isOpen())}>
                 ❖ {value()}
-                {/* {depth()} */}
             </div>
 
             <div
@@ -23,8 +21,6 @@ export default function DropdownMenu(props) {
                     options={props.options}
                     setValue={setValue}
                     setIsOpen={setIsOpen}
-                    setDepth={setDepth}
-                    depth={depth}
                 />
             </div>
         </div>
