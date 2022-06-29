@@ -34,9 +34,9 @@ export default function Menu(props) {
             // data-index={index}
             class={s.Option}
             onclick={e => {
-                // props.setValue(option.value);
+                props.setValue(option.value);
                 // setIsSubMenuOpen(false);
-                // props.setIsOpen(false);
+                props.setIsOpen(false);
             }}
         >
             {option.text}
@@ -46,9 +46,9 @@ export default function Menu(props) {
     return (
         <div
             menu-index={props.index}
+            class={s.Menu}
             style={{
-                width: '100%',
-                border: '1px solid',
+
                 transform: depth() === 1 ? ''
                     : `translate(${122 - (depth() * 1.8)}px, -26px)`
             }}
@@ -63,16 +63,14 @@ export default function Menu(props) {
 
                             {console.log()}
                             <div
-                                // data-index={idx()}
-                                class={s.SubMenuContainer}
+                                class={s.SubMenuOpt}
                                 onclick={e => {
-                                    // console.log(option, i)
                                     setOpenSubMenus((sms) => {
                                         return sms.map(menu => {
                                             if (menu.id === idx()) {
                                                 return { ...menu, open: !menu.open }
                                             }
-                                            return menu
+                                            return { ...menu, open: false }
                                         })
                                     })
 
