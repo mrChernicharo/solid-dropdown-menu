@@ -1,0 +1,70 @@
+.App {
+	text-align: center;
+}
+
+.logo {
+	animation: logo-spin infinite 20s linear;
+	height: 40vmin;
+	pointer-events: none;
+}
+
+.header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.Input {
+	width: 120px;
+	height: 32px;
+	border: 1px solid;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: 0.5rem;
+}
+
+.OptionsContainer {
+	width: 120px;
+	/* width: 100%; */
+	border: 1px solid;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0.15rem;
+	padding: 0.25rem;
+}
+
+.Option {
+	margin: 0.25rem;
+	background-color: #348932;
+}
+
+.SubMenuContainer {
+	display: flex;
+}
+
+.expanding {
+	/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+	animation: expand 0.2s ease;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+@keyframes expand {
+	0% {
+		height: 0%;
+		opacity: 0;
+	}
+	100% {
+		height: 100%;
+		opacity: 1;
+	}
+}
