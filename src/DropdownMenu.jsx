@@ -1,4 +1,4 @@
-import { createEffect, createSignal } from 'solid-js';
+import { createEffect, createSignal, Show } from 'solid-js';
 import s from './App.module.css';
 import Menu from './Menu';
 
@@ -7,9 +7,10 @@ export default function DropdownMenu(props) {
     const [isOpen, setIsOpen] = createSignal(false);
 
 
+    const handleOpen = (e) => setIsOpen(!isOpen())
     return (
         <div>
-            <div class={s.Input} onClick={e => setIsOpen(!isOpen())}>
+            <div class={s.Input} onClick={handleOpen}>
                 ❖ {value()}
             </div>
 

@@ -30,7 +30,12 @@ function App() {
 						{ depth: 3, text: 'option C3C', value: 'C3C', options: null },
 					],
 				},
-				{ depth: 2, text: 'option C4', value: 'C4', options: null },
+				{
+					depth: 2, text: 'option C4', value: 'C4', options: [
+						{ depth: 3, text: 'option C4a', value: 'C4a', options: null },
+
+					]
+				},
 				{
 					depth: 2, text: 'option C5',
 					value: 'C5',
