@@ -14,7 +14,7 @@ export default function DropdownMenu(props) {
                 ❖ {value()}
             </div>
 
-            <div class={`${s.OptionsContainer} ${isOpen() ? s.expanding : s.hidden}`}>
+            <div class={`${s.MenuContainer} ${isOpen() ? s.expanding : s.hidden}`}>
                 <Menu
                     options={props.options}
                     setValue={setValue}
