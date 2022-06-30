@@ -9,7 +9,7 @@ export default function DropdownMenu(props) {
     const handleOpen = (e) => setIsOpen(!isOpen())
 
     return (
-        <div>
+        <div class={s.DropDown}>
             <div class={s.Input} onClick={handleOpen}>
                 ❖ {value()}
             </div>
@@ -20,7 +20,9 @@ export default function DropdownMenu(props) {
                     setValue={setValue}
                     setIsOpen={setIsOpen}
                 />
-                <div class={s.Overlay} onclick={handleOpen}></div>
+                <Show when={isOpen()}>
+                    <div class={s.Overlay} onclick={handleOpen}></div>
+                </Show>
             </div>
 
         </div>

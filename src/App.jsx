@@ -62,15 +62,16 @@ function App() {
 		<div class={styles.App}>
 			<h1>Dropdown</h1>
 
+			<DropdownMenu
+				options={dropdownMenuOptions}
+				initialValue={dropdownMenuOptions[0].value}
+			/>
+			<br /><br />
 			<Dropdown
 				options={dropdownOptions}
 				initialValue={dropdownOptions[0].value}
 			/>
 
-			<DropdownMenu
-				options={dropdownMenuOptions}
-				initialValue={dropdownMenuOptions[0].value}
-			/>
 		</div>
 	);
 }

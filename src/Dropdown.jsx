@@ -6,7 +6,7 @@ export default function Dropdown(props) {
 	const [isOpen, setIsOpen] = createSignal(false);
 
 	return (
-		<div>
+		<div class={s.DropDown}>
 			<div class={s.Input} onClick={e => setIsOpen(!isOpen())}>
 				<span>{value()}</span>
 				<span
@@ -18,12 +18,7 @@ export default function Dropdown(props) {
 				</span>
 			</div>
 
-			{/* <Show when={isOpen()}> */}
-			<div
-				class={`${s.OptionsContainer} ${
-					isOpen() ? s.expanding : s.hidden
-				}`}
-			>
+			<div class={`${s.OptionsContainer} ${isOpen() ? s.expanding : s.hidden}`}>
 				<For each={props.options}>
 					{option => (
 						<div
@@ -38,7 +33,10 @@ export default function Dropdown(props) {
 					)}
 				</For>
 			</div>
-			{/* </Show> */}
+			<Show when={isOpen()}>
+				<div class={s.Overlay} onclick={e => setIsOpen(!isOpen())}></div>
+			</Show>
+
 		</div>
 	);
 }
