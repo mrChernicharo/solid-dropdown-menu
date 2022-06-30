@@ -6,24 +6,23 @@ export default function DropdownMenu(props) {
     const [value, setValue] = createSignal(props.initialValue);
     const [isOpen, setIsOpen] = createSignal(false);
 
-
     const handleOpen = (e) => setIsOpen(!isOpen())
+
     return (
         <div>
             <div class={s.Input} onClick={handleOpen}>
                 ❖ {value()}
             </div>
 
-            <div
-                class={`${s.OptionsContainer} ${isOpen() ? s.expanding : s.hidden
-                    }`}
-            >
+            <div class={`${s.OptionsContainer} ${isOpen() ? s.expanding : s.hidden}`}>
                 <Menu
                     options={props.options}
                     setValue={setValue}
                     setIsOpen={setIsOpen}
                 />
+                <div class={s.Overlay} onclick={handleOpen}></div>
             </div>
+
         </div>
     );
 }

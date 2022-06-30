@@ -6,7 +6,17 @@ export default function Menu(props) {
     const [openSubMenus, setOpenSubMenus] = createSignal([]);
     const depth = () => props.options[0].depth
 
+    function handleClick(e, idx) {
+        setOpenSubMenus((sms) => {
+            return sms.map(menu => {
+                if (menu.id === idx) {
+                    return { ...menu, open: !menu.open }
+                }
+                return { ...menu, open: false }
+            })
+        })
 
+    }
 
     createEffect(() => console.log(JSON.stringify(openSubMenus(), null, 2)))
 
@@ -31,11 +41,10 @@ export default function Menu(props) {
 
     const el = (option, index) => (
         <div
-            // data-index={index}
             class={s.Option}
             onclick={e => {
                 props.setValue(option.value);
-                // setIsSubMenuOpen(false);
+                setOpenSubMenus(sms => sms.map(m => ({ ...m, open: false })))
                 props.setIsOpen(false);
             }}
         >
@@ -48,9 +57,8 @@ export default function Menu(props) {
             menu-index={props.index}
             class={s.Menu}
             style={{
-
-                transform: depth() === 1 ? ''
-                    : `translate(${122 - (depth() * 1.8)}px, -26px)`
+                transform: depth() === 1 ?
+                    '' : `translate(${152 - (depth() * 1.9)}px, -26px)`
             }}
         >
             <For each={props.options}>
@@ -60,26 +68,13 @@ export default function Menu(props) {
                             when={option.options}
                             fallback={el(option, idx())}
                         >
-
-                            {console.log()}
-                            <div
-                                class={s.SubMenuOpt}
-                                onclick={e => {
-                                    setOpenSubMenus((sms) => {
-                                        return sms.map(menu => {
-                                            if (menu.id === idx()) {
-                                                return { ...menu, open: !menu.open }
-                                            }
-                                            return { ...menu, open: false }
-                                        })
-                                    })
-
-                                }}
+                            <div class={s.SubMenuOpt}
+                                onClick={e => handleClick(e, idx())}
                             >
                                 {el(option, idx())} ‣
                             </div>
 
-                            <Show when={openSubMenus()[openSubMenus().findIndex(m => m.id === idx())]?.open}>
+                            <Show when={openSubMenus().find(m => m.id === idx())?.open}>
                                 <Menu
                                     index={i++}
                                     options={option.options}

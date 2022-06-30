@@ -20,7 +20,7 @@
 }
 
 .Input {
-	width: 120px;
+	width: 150px;
 	height: 32px;
 	border: 1px solid;
 	display: flex;
@@ -31,7 +31,7 @@
 
 .OptionsContainer {
 	position: relative;
-	width: 120px;
+	width: 150px;
 	border: 1px solid;
 	display: flex;
 	flex-direction: column;
@@ -43,6 +43,7 @@
 	width: 100%;
 	border: 1px solid;
 	position: absolute;
+	z-index: 2;
 }
 
 .Option {
@@ -52,6 +53,16 @@
 
 .SubMenuOpt {
 	display: flex;
+}
+
+.Overlay {
+	position: fixed;
+	width: 1000vw;
+	height: 1000vh;
+	background-color: #348932;
+	opacity: 0.1;
+	top: 0;
+	z-index: 1;
 }
 
 .expanding {
