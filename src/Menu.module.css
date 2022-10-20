@@ -1,0 +1,114 @@
+.Input {
+  width: 150px;
+  height: 32px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.DropDown {
+  border: 1px dashed red;
+}
+
+.MenuContainer {
+  position: relative;
+  background-color: #282c34;
+  width: 150px;
+  z-index: 2;
+}
+
+.Menu {
+  width: 150px;
+  border: 1px solid;
+  position: absolute;
+  z-index: 3;
+  background-color: #282c34;
+}
+
+.SubMenuOpt {
+  display: flex;
+}
+.SubMenuOpt > span {
+  padding: 8px 10px 0 10px;
+}
+.SubMenuOpt > span:hover {
+  background-color: #636770;
+}
+
+.OptionsWrapper {
+  overflow: hidden;
+}
+
+.OptionsContainer {
+  position: relative;
+  width: 150px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.15rem;
+  z-index: 2;
+  background-color: #282c34;
+  transform-origin: top;
+}
+
+.Option {
+  z-index: 4;
+  width: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.Option:hover {
+  background-color: #636770;
+}
+
+.Overlay {
+  position: fixed;
+  width: 1000vw;
+  height: 1000vh;
+  background-color: #348932;
+  opacity: 0.06;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.expanded {
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: expand 0.5s ease;
+  animation-fill-mode: forwards;
+}
+
+.hidden {
+  opacity: 0;
+  animation: hide 0.5s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    /* transform: scale(1, 0.75); */
+    transform: translateY(-100px);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    /* transform: scale(1, 0.75); */
+    transform: translateY(-100px);
+    visibility: hidden;
+  }
+}
