@@ -14,9 +14,12 @@ export default function DropdownMenu(props) {
         ❖ {value()}
       </div>
 
-      <div class={`${s.MenuContainer} ${isOpen() ? s.expanded : s.hidden}`}>
-        <Menu options={props.options} setValue={setValue} setIsOpen={setIsOpen} />
+      <div class={s.MenuWrapper}>
+        <div class={`${s.MenuContainer} ${isOpen() ? s.expanded : s.hidden}`}>
+          <Menu options={props.options} setValue={setValue} setIsOpen={setIsOpen} />
+        </div>
       </div>
+
       <Show when={isOpen()}>
         <div class={s.Overlay} onclick={handleOpen}></div>
       </Show>

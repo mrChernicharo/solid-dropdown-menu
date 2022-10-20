@@ -7,46 +7,17 @@
   justify-content: space-between;
   padding-inline: 0.5rem;
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
 
 .DropDown {
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
 }
 
 .MenuContainer {
   position: relative;
-  background-color: #282c34;
   width: 150px;
   z-index: 2;
-}
-
-.Menu {
-  width: 150px;
-  border: 1px solid;
-  position: absolute;
-  z-index: 3;
-  background-color: #282c34;
-}
-
-.SubMenuOpt {
-  display: flex;
-}
-.SubMenuOpt > span {
-  padding: 8px 10px 0 10px;
-}
-.SubMenuOpt > span:hover {
-  background-color: #636770;
-}
-
-.OptionsWrapper {
-  overflow: hidden;
-}
-
-.OptionsContainer {
-  position: relative;
-  width: 150px;
-  border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,8 +27,27 @@
   transform-origin: top;
 }
 
+.Menu {
+  width: 150px;
+  border: 1px solid;
+  position: absolute;
+  z-index: 2;
+  background-color: #282c34;
+}
+
+.SubMenuOpt {
+  display: flex;
+}
+.SubMenuOpt > span {
+  padding: 8px 10px 0 10px;
+  cursor: pointer;
+}
+.SubMenuOpt > span:hover {
+  background-color: #636770;
+}
+
 .Option {
-  z-index: 4;
+  z-index: 2;
   width: 100%;
   padding: 0.5rem;
   cursor: pointer;

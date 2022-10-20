@@ -7,30 +7,11 @@
   justify-content: space-between;
   padding-inline: 0.5rem;
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
 
 .DropDown {
-  border: 1px dashed red;
-}
-
-.MenuContainer {
-  position: relative;
-  background-color: #282c34;
-  width: 150px;
-  z-index: 2;
-}
-
-.Menu {
-  width: 150px;
-  border: 1px solid;
-  position: absolute;
-  z-index: 3;
-  background-color: #282c34;
-}
-
-.SubMenuOpt {
-  display: flex;
+  /* border: 1px dashed red; */
 }
 
 .OptionsWrapper {
@@ -38,7 +19,8 @@
 }
 
 .OptionsContainer {
-  position: relative;
+  position: absolute;
+  /* position: relative; */
   width: 150px;
   border: 1px solid;
   display: flex;
@@ -51,7 +33,7 @@
 }
 
 .Option {
-  z-index: 4;
+  z-index: 2;
   width: 100%;
   padding: 0.5rem;
   cursor: pointer;

@@ -96,6 +96,14 @@ function App() {
 
         <Dropdown options={dropdownOptions} initialValue={dropdownOptions[0].value} />
       </div>
+
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas maiores assumenda fugiat est voluptatum cum,
+        cupiditate repellat sunt doloremque eveniet, id earum ab sed? Ea architecto quia voluptatem dolor corrupti.
+        Impedit optio adipisci libero in dolor nisi odit? Suscipit porro labore impedit voluptatem molestiae optio
+        soluta ratione magnam, nobis libero nulla sit tenetur assumenda asperiores esse quaerat dignissimos delectus
+        odio!
+      </p>
     </div>
   );
 }
